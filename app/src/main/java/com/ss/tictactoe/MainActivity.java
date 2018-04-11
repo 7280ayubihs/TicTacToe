@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -45,6 +46,10 @@ public class MainActivity extends Activity {
     LinearLayout mLayout2;
     @BindView(R.id.restart)
     Button mRestart;
+    @BindView(R.id.textView)
+    TextView mTextView;
+    @BindView(R.id.textView2)
+    TextView mTextView2;
 
     private TicTacToe mTicTacToe;
 
@@ -132,6 +137,8 @@ public class MainActivity extends Activity {
         mLayout1.setVisibility(View.VISIBLE);
         mLayout2.setVisibility(View.INVISIBLE);
         mRestart.setVisibility(View.INVISIBLE);
+        mTextView.setVisibility(View.INVISIBLE);
+        mTextView2.setVisibility(View.INVISIBLE);
         mSquareA1.setImageDrawable(null);
         mSquareB1.setImageDrawable(null);
         mSquareC1.setImageDrawable(null);
@@ -143,6 +150,37 @@ public class MainActivity extends Activity {
         mSquareC3.setImageDrawable(null);
     }
 
+    /**
+     * {@link #mTicTacToe} の状態を参照し、盤面を更新します。
+     */
+    private void updateBoard() {
+        if (mTicTacToe.isFinished()) {
+            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
+                mTextView.setText(mTicTacToe.checkIssue() == TicTacToe.SquareState.Cross ? "WINNER!" : "LOSER...");
+                mTextView2.setText(mTicTacToe.checkIssue() == TicTacToe.SquareState.Circle ? "WINNER!" : "LOSER...");
+            } else {
+                // 引き分け
+                mTextView.setText("DRAW");
+                mTextView2.setText("DRAW");
+            }
+            mTextView.setVisibility(View.VISIBLE);
+            mTextView2.setVisibility(View.VISIBLE);
+            mLayout1.setVisibility(View.VISIBLE);
+            mLayout2.setVisibility(View.VISIBLE);
+            mRestart.setVisibility(View.VISIBLE);
+        } else {
+            if (mTurn == TicTacToe.SquareState.Cross) {
+                mTurn = TicTacToe.SquareState.Circle;
+                mLayout1.setVisibility(View.INVISIBLE);
+                mLayout2.setVisibility(View.VISIBLE);
+            } else {
+                mTurn = TicTacToe.SquareState.Cross;
+                mLayout1.setVisibility(View.VISIBLE);
+                mLayout2.setVisibility(View.INVISIBLE);
+            }
+        }
+    }
+
     @OnClick(R.id.squareA1)
     void onClickSquareA1() {
         if (mTicTacToe.setSquareState("A1", mTurn)) {
@@ -151,13 +189,7 @@ public class MainActivity extends Activity {
             } else {
                 mSquareA1.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
@@ -169,13 +201,7 @@ public class MainActivity extends Activity {
             } else {
                 mSquareB1.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
@@ -187,13 +213,7 @@ public class MainActivity extends Activity {
             } else {
                 mSquareC1.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
@@ -205,13 +225,7 @@ public class MainActivity extends Activity {
             } else {
                 mSquareA2.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
@@ -223,13 +237,7 @@ public class MainActivity extends Activity {
             } else {
                 mSquareB2.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
@@ -241,13 +249,7 @@ public class MainActivity extends Activity {
             } else {
                 mSquareC2.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
@@ -259,13 +261,7 @@ public class MainActivity extends Activity {
             } else {
                 mSquareA3.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
@@ -277,13 +273,7 @@ public class MainActivity extends Activity {
             } else {
                 mSquareB3.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
@@ -295,30 +285,12 @@ public class MainActivity extends Activity {
             } else {
                 mSquareC3.setImageResource(R.drawable.ic_panorama_fish_eye_white_48px);
             }
-            if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
-                mRestart.setVisibility(View.VISIBLE);
-            } else {
-                changeTurn();
-            }
+            updateBoard();
         }
     }
 
     @OnClick(R.id.restart)
     void onClickRestart() {
         initBoard();
-    }
-
-    private void changeTurn() {
-        if (mTurn == TicTacToe.SquareState.Cross) {
-            mTurn = TicTacToe.SquareState.Circle;
-            mLayout1.setVisibility(View.INVISIBLE);
-            mLayout2.setVisibility(View.VISIBLE);
-        } else {
-            mTurn = TicTacToe.SquareState.Cross;
-            mLayout1.setVisibility(View.VISIBLE);
-            mLayout2.setVisibility(View.INVISIBLE);
-        }
     }
 }

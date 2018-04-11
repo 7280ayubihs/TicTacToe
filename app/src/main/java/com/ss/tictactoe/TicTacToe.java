@@ -124,6 +124,22 @@ public class TicTacToe {
         return SquareState.None;
     }
 
+    /**
+     * ゲームが終了しているか
+     * @return 終了している場合は true を返します。
+     */
+    public boolean isFinished() {
+        if (checkIssue() != SquareState.None) {
+            return true;
+        }
+        for (SquareState state : mBoardState) {
+            if (state == SquareState.None) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public enum SquareState {
         None,
         Circle,
