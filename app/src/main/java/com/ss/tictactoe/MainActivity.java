@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -42,6 +43,8 @@ public class MainActivity extends Activity {
     LinearLayout mLayout1;
     @BindView(R.id.layout2)
     LinearLayout mLayout2;
+    @BindView(R.id.restart)
+    Button mRestart;
 
     private TicTacToe mTicTacToe;
 
@@ -52,70 +55,83 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        setLayoutParams();
+    }
 
+    /**
+     * 画面サイズ（dp）からマス目のサイズを計算
+     */
+    private void setLayoutParams() {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-
-        int dpHeight = (int) (displayMetrics.heightPixels / displayMetrics.density);
         int dpWidth = (int) (displayMetrics.widthPixels / displayMetrics.density);
-        Log.d("DEBUG", "Width->" + dpWidth + ",Height=>" + dpHeight);
-        int width = dpWidth / 3;
-        int height = width;
+        int dpHeight = (int) (displayMetrics.heightPixels / displayMetrics.density);
+        Log.d(getClass().getSimpleName(), "Width : " + dpWidth);
+        Log.d(getClass().getSimpleName(), "Height: " + dpHeight);
+
+        int size = dpWidth / 3;
 
         ViewGroup.LayoutParams params;
         params = mSquareA1.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareA1.setLayoutParams(params);
 
         params = mSquareB1.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareB1.setLayoutParams(params);
 
         params = mSquareC1.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareC1.setLayoutParams(params);
 
         params = mSquareA2.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareA2.setLayoutParams(params);
 
         params = mSquareB2.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareB2.setLayoutParams(params);
 
         params = mSquareC2.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareC2.setLayoutParams(params);
 
         params = mSquareA3.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareA3.setLayoutParams(params);
 
         params = mSquareB3.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareB3.setLayoutParams(params);
 
         params = mSquareC3.getLayoutParams();
-        params.width = width;
-        params.height = height;
+        params.width = size;
+        params.height = size;
         mSquareC3.setLayoutParams(params);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // 盤面の初期化
+        initBoard();
+    }
+
+    /**
+     * 盤面の初期化を行う。
+     */
+    private void initBoard() {
         mTicTacToe = new TicTacToe();
         mTurn = TicTacToe.SquareState.Cross;
         mLayout1.setVisibility(View.VISIBLE);
         mLayout2.setVisibility(View.INVISIBLE);
+        mRestart.setVisibility(View.INVISIBLE);
         mSquareA1.setImageDrawable(null);
         mSquareB1.setImageDrawable(null);
         mSquareC1.setImageDrawable(null);
@@ -138,6 +154,7 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
@@ -155,6 +172,7 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
@@ -172,6 +190,7 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
@@ -189,6 +208,7 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
@@ -206,6 +226,7 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
@@ -223,6 +244,7 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
@@ -240,6 +262,7 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
@@ -257,6 +280,7 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
@@ -274,10 +298,16 @@ public class MainActivity extends Activity {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
                 mLayout1.setVisibility(View.VISIBLE);
                 mLayout2.setVisibility(View.VISIBLE);
+                mRestart.setVisibility(View.VISIBLE);
             } else {
                 changeTurn();
             }
         }
+    }
+
+    @OnClick(R.id.restart)
+    void onClickRestart() {
+        initBoard();
     }
 
     private void changeTurn() {
