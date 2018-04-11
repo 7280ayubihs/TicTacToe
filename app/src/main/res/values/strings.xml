@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TicTacToe</string>
+    <string name="turn_text">の番</string>
+    <string name="restart_button_text">ゲームを再開</string>
+    <string name="issue_winner">WINNER!</string>
+    <string name="issue_loser">LOSER...</string>
+    <string name="issue_draw">DRAW</string>
 </resources>

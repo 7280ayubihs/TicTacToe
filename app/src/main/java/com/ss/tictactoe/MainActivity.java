@@ -40,16 +40,16 @@ public class MainActivity extends Activity {
     ImageView mSquareB3;
     @BindView(R.id.squareC3)
     ImageView mSquareC3;
-    @BindView(R.id.layout1)
-    LinearLayout mLayout1;
-    @BindView(R.id.layout2)
-    LinearLayout mLayout2;
+    @BindView(R.id.crossLayout)
+    LinearLayout mCrossLayout;
+    @BindView(R.id.circleLayout)
+    LinearLayout mCircleLayout;
     @BindView(R.id.restart)
     Button mRestart;
-    @BindView(R.id.textView)
-    TextView mTextView;
-    @BindView(R.id.textView2)
-    TextView mTextView2;
+    @BindView(R.id.crossIssueTextView)
+    TextView mCrossIssueTextView;
+    @BindView(R.id.circleIssueTextView)
+    TextView mCircleIssueTextView;
 
     private TicTacToe mTicTacToe;
 
@@ -134,11 +134,11 @@ public class MainActivity extends Activity {
     private void initBoard() {
         mTicTacToe = new TicTacToe();
         mTurn = TicTacToe.SquareState.Cross;
-        mLayout1.setVisibility(View.VISIBLE);
-        mLayout2.setVisibility(View.INVISIBLE);
+        mCrossLayout.setVisibility(View.VISIBLE);
+        mCircleLayout.setVisibility(View.INVISIBLE);
         mRestart.setVisibility(View.INVISIBLE);
-        mTextView.setVisibility(View.INVISIBLE);
-        mTextView2.setVisibility(View.INVISIBLE);
+        mCrossIssueTextView.setVisibility(View.INVISIBLE);
+        mCircleIssueTextView.setVisibility(View.INVISIBLE);
         mSquareA1.setImageDrawable(null);
         mSquareB1.setImageDrawable(null);
         mSquareC1.setImageDrawable(null);
@@ -156,27 +156,27 @@ public class MainActivity extends Activity {
     private void updateBoard() {
         if (mTicTacToe.isFinished()) {
             if (mTicTacToe.checkIssue() != TicTacToe.SquareState.None) {
-                mTextView.setText(mTicTacToe.checkIssue() == TicTacToe.SquareState.Cross ? "WINNER!" : "LOSER...");
-                mTextView2.setText(mTicTacToe.checkIssue() == TicTacToe.SquareState.Circle ? "WINNER!" : "LOSER...");
+                mCrossIssueTextView.setText(mTicTacToe.checkIssue() == TicTacToe.SquareState.Cross ? getString(R.string.issue_winner) : getString(R.string.issue_loser));
+                mCircleIssueTextView.setText(mTicTacToe.checkIssue() == TicTacToe.SquareState.Circle ? getString(R.string.issue_winner) : getString(R.string.issue_loser));
             } else {
                 // 引き分け
-                mTextView.setText("DRAW");
-                mTextView2.setText("DRAW");
+                mCrossIssueTextView.setText(R.string.issue_draw);
+                mCircleIssueTextView.setText(R.string.issue_draw);
             }
-            mTextView.setVisibility(View.VISIBLE);
-            mTextView2.setVisibility(View.VISIBLE);
-            mLayout1.setVisibility(View.VISIBLE);
-            mLayout2.setVisibility(View.VISIBLE);
+            mCrossIssueTextView.setVisibility(View.VISIBLE);
+            mCircleIssueTextView.setVisibility(View.VISIBLE);
+            mCrossLayout.setVisibility(View.VISIBLE);
+            mCircleLayout.setVisibility(View.VISIBLE);
             mRestart.setVisibility(View.VISIBLE);
         } else {
             if (mTurn == TicTacToe.SquareState.Cross) {
                 mTurn = TicTacToe.SquareState.Circle;
-                mLayout1.setVisibility(View.INVISIBLE);
-                mLayout2.setVisibility(View.VISIBLE);
+                mCrossLayout.setVisibility(View.INVISIBLE);
+                mCircleLayout.setVisibility(View.VISIBLE);
             } else {
                 mTurn = TicTacToe.SquareState.Cross;
-                mLayout1.setVisibility(View.VISIBLE);
-                mLayout2.setVisibility(View.INVISIBLE);
+                mCrossLayout.setVisibility(View.VISIBLE);
+                mCircleLayout.setVisibility(View.INVISIBLE);
             }
         }
     }
