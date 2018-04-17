@@ -13,9 +13,9 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="@+id/squareB3"
-        app:layout_constraintEnd_toStartOf="@+id/squareB2"
-        app:layout_constraintTop_toTopOf="@+id/squareB1" />
+        app:layout_constraintBottom_toBottomOf="@+id/square7"
+        app:layout_constraintEnd_toStartOf="@+id/square4"
+        app:layout_constraintTop_toTopOf="@+id/square1" />
 
     <View
         android:id="@+id/borderVertical2"
@@ -23,9 +23,9 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="@+id/squareB3"
-        app:layout_constraintStart_toEndOf="@+id/squareB2"
-        app:layout_constraintTop_toTopOf="@+id/squareB1" />
+        app:layout_constraintBottom_toBottomOf="@+id/square7"
+        app:layout_constraintStart_toEndOf="@+id/square4"
+        app:layout_constraintTop_toTopOf="@+id/square1" />
 
     <View
         android:id="@+id/borderHorizontal1"
@@ -33,9 +33,9 @@
         android:layout_height="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/squareB2"
-        app:layout_constraintEnd_toEndOf="@+id/squareC2"
-        app:layout_constraintStart_toStartOf="@+id/squareA2" />
+        app:layout_constraintBottom_toTopOf="@+id/square4"
+        app:layout_constraintEnd_toEndOf="@+id/square5"
+        app:layout_constraintStart_toStartOf="@+id/square3" />
 
     <View
         android:id="@+id/borderHorizontal2"
@@ -43,12 +43,60 @@
         android:layout_height="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="@+id/squareC2"
-        app:layout_constraintStart_toStartOf="@+id/squareA2"
-        app:layout_constraintTop_toBottomOf="@+id/squareB2" />
+        app:layout_constraintEnd_toEndOf="@+id/square5"
+        app:layout_constraintStart_toStartOf="@+id/square3"
+        app:layout_constraintTop_toBottomOf="@+id/square4" />
 
     <ImageView
-        android:id="@+id/squareB2"
+        android:id="@+id/square0"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_panorama_fish_eye_white_48px"
+        app:layout_constraintBottom_toTopOf="@+id/borderHorizontal1"
+        app:layout_constraintEnd_toStartOf="@+id/borderVertical1"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/square1"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_clear_black_48px"
+        app:layout_constraintBottom_toTopOf="@+id/borderHorizontal1"
+        app:layout_constraintEnd_toEndOf="@+id/square4"
+        app:layout_constraintStart_toStartOf="@+id/square4"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/square2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_panorama_fish_eye_white_48px"
+        app:layout_constraintBottom_toTopOf="@+id/borderHorizontal1"
+        app:layout_constraintStart_toEndOf="@+id/borderVertical2"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/square3"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_clear_black_48px"
+        app:layout_constraintBottom_toBottomOf="@+id/square4"
+        app:layout_constraintEnd_toStartOf="@+id/borderVertical1"
+        app:layout_constraintTop_toTopOf="@+id/square4"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/square4"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginBottom="8dp"
@@ -63,55 +111,20 @@
         tools:ignore="ContentDescription" />
 
     <ImageView
-        android:id="@+id/squareA1"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_panorama_fish_eye_white_48px"
-        app:layout_constraintBottom_toTopOf="@+id/borderHorizontal1"
-        app:layout_constraintEnd_toStartOf="@+id/borderVertical1"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/squareB1"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:src="@drawable/ic_clear_black_48px"
-        app:layout_constraintBottom_toTopOf="@+id/borderHorizontal1"
-        app:layout_constraintEnd_toEndOf="@+id/squareB2"
-        app:layout_constraintStart_toStartOf="@+id/squareB2"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/squareC1"
+        android:id="@+id/square5"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/ic_panorama_fish_eye_white_48px"
-        app:layout_constraintBottom_toTopOf="@+id/borderHorizontal1"
-        app:layout_constraintStart_toEndOf="@+id/borderVertical2"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/squareA2"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_clear_black_48px"
-        app:layout_constraintBottom_toBottomOf="@+id/squareB2"
-        app:layout_constraintEnd_toStartOf="@+id/borderVertical1"
-        app:layout_constraintTop_toTopOf="@+id/squareB2"
+        app:layout_constraintBottom_toBottomOf="@+id/square4"
+        app:layout_constraintStart_toEndOf="@+id/borderVertical2"
+        app:layout_constraintTop_toTopOf="@+id/square4"
         tools:ignore="ContentDescription" />
 
     <ImageView
-        android:id="@+id/squareA3"
+        android:id="@+id/square6"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginEnd="8dp"
@@ -122,33 +135,20 @@
         tools:ignore="ContentDescription" />
 
     <ImageView
-        android:id="@+id/squareC2"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/ic_clear_black_48px"
-        app:layout_constraintBottom_toBottomOf="@+id/squareB2"
-        app:layout_constraintStart_toEndOf="@+id/borderVertical2"
-        app:layout_constraintTop_toTopOf="@+id/squareB2"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/squareB3"
+        android:id="@+id/square7"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_clear_black_48px"
-        app:layout_constraintEnd_toEndOf="@+id/squareB2"
-        app:layout_constraintStart_toStartOf="@+id/squareB2"
+        app:layout_constraintEnd_toEndOf="@+id/square4"
+        app:layout_constraintStart_toStartOf="@+id/square4"
         app:layout_constraintTop_toBottomOf="@+id/borderHorizontal2"
         tools:ignore="ContentDescription" />
 
     <ImageView
-        android:id="@+id/squareC3"
+        android:id="@+id/square8"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="8dp"
@@ -170,7 +170,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/squareB3">
+        app:layout_constraintTop_toBottomOf="@+id/square7">
 
         <ImageView
             android:layout_width="match_parent"
@@ -198,7 +198,7 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:rotation="180"
-        app:layout_constraintBottom_toTopOf="@+id/squareB1"
+        app:layout_constraintBottom_toTopOf="@+id/square1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -251,7 +251,7 @@
         app:layout_constraintBottom_toTopOf="@+id/crossLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/squareB3" />
+        app:layout_constraintTop_toBottomOf="@+id/square7" />
 
     <TextView
         android:id="@+id/circleIssueTextView"
@@ -266,7 +266,7 @@
         android:text="@string/issue_loser"
         android:textColor="@android:color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/squareB1"
+        app:layout_constraintBottom_toTopOf="@+id/square1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circleLayout" />
